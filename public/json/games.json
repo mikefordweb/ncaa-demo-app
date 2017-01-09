@@ -1,0 +1,55 @@
+{
+	"games": [
+		{
+			"game_date": "01/27/2017",
+			"game_start_time": "01:00",
+			"game_start_am_pm": "pm",
+			"time_zone": "CST",
+			"home_team": "Marquette",
+			"away_team": "Villanova",
+			"home_team_score": "0",
+			"away_team_score": "0",
+			"game_location": "Milwaukee, WI",
+			"time_left_min": "20",
+			"time_left_sec": "00",
+			"game_state": "in progress",
+			"half_value": "1H",
+			"boos_count": "2",
+			"cheers_count": "5"
+		},
+		{
+			"game_date": "01/12/2017",
+			"game_start_time": "08:00",
+			"game_start_am_pm": "pm",
+			"time_zone": "CST",
+			"home_team": "Seton Hall",
+			"away_team": "Georgetown",
+			"home_team_score": "0",
+			"away_team_score": "0",
+			"game_location": "Madison, WI",
+			"time_left_min": "20",
+			"time_left_sec": "00",
+			"game_state": "in progress",
+			"half_value": "1H",
+			"boos_count": "0",
+			"cheers_count": "0"
+		},
+		{
+			"game_date": "01/12/2017",
+			"game_start_time": "08:00",
+			"game_start_am_pm": "pm",
+			"time_zone": "CST",
+			"home_team": "Xavier",
+			"away_team": "Creighton",
+			"home_team_score": "0",
+			"away_team_score": "0",
+			"game_location": "Omaha, NE",
+			"time_left_min": "20",
+			"time_left_sec": "00",
+			"game_state": "in progress",
+			"half_value": "1H",
+			"boos_count": "0",
+			"cheers_count": "0"
+		}
+	]
+}
