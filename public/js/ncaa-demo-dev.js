@@ -126,7 +126,7 @@ var App = React.createClass({
       $('.game-widget-bkg[data-game='+game_num+']').append('<div class="time-score-rating" style="height:'+(game_diff*10)+'%"></div>');
 
       if (gameArray[game_num].game_state === "in progress") {
-        this.props.timerIdArray[game_num] = setTimeout(function(){that.gameStats((game_num), gameArray)}, 500);
+        this.props.timerIdArray[game_num] = setTimeout(function(){that.gameStats((game_num), gameArray)}, 1000);
       } else {
         $('.game-widget-bkg[data-game='+game_num+']').find('.half-value').css('display','none');
         //$('.game-widget-bkg[data-game='+game_num+']').append('<div class="time-score-rating" style="height:'+(game_diff*10)+'%"></div>');
@@ -142,6 +142,11 @@ var App = React.createClass({
     for (var i = 0; i<this.props.timerIdArray.length;i++) {
       clearTimeout(this.props.timerIdArray[i]);
     }
+  },
+  startGameTimers: function(e) {
+    console.log("in starttime");
+    e.preventDefault();
+    this.getGames();
   },
   handleBoosClick: function (game_index) {
 
@@ -214,31 +219,36 @@ var App = React.createClass({
     console.log("componentDidMount");
     this.getGames();
   },
-  componentWillUnmount: function() {
-  },
   render: function() {
     var that = this;
 
     return (
       <div>
-        <button className='stop_timers' onClick={this.stopGameTimers}>Stop</button>
+        <button className='stop-timers' onClick={this.stopGameTimers}>Stop</button>
+        <button className='start-timers' onClick={this.startGameTimers}>Start</button>
+        <div className="inner-game-bkg main-container-bkg"></div>
+        
+        <div className="game-wrapper">
         {this.state.stateGameArray.map(function(game_info, index) {
-          return <div key={index} className="game-window">
-                <div className="game-widget">
-                    
-                    <div className="game-widget-header">
-                        <GameTimer game_info={game_info} index={index} />
-                    </div>
-                    <div className="game-widget-content">
-                      <HomeTeamInfo game_info={game_info} index={index} />
-                      <AwayTeamInfo game_info={game_info} index={index} />
-                    </div>
-                    <div className="game-widget-footer">
-                        <CheersBoosTracker handleBoosClick={that.handleBoosClick} handleCheersClick={that.handleCheersClick} game_info={game_info} index={index} />
-                    </div>
-                </div>
-            </div>
-        })}
+            return <div key={index} className="game-window">
+                  <div className="game-widget">
+                      <div className="game-widget-header">
+                          <GameTimer game_info={game_info} index={index} />
+                      </div>
+                      <div className="game-widget-content">
+                        <HomeTeamInfo game_info={game_info} index={index} />
+                        <AwayTeamInfo game_info={game_info} index={index} />
+                      </div>
+                      <div className="game-widget-footer">
+                          <CheersBoosTracker handleBoosClick={that.handleBoosClick} handleCheersClick={that.handleCheersClick} game_info={game_info} index={index} />
+                      </div>
+                  </div>
+              </div>
+          })}
+        </div>
+        <div className="swap-content">
+          <SwapTools />
+        </div>
       </div>
     );
   }
@@ -347,6 +357,40 @@ var CheersBoosTracker = React.createClass({
       <div className="cheers-label">CHEERS</div><div className="boos-label">BOOOOS</div>
   </div>);
  }
+});
+
+var swapTools = React.createClass({
+  render: function() {
+    return (
+          <label for="swap-git-header">Git Repo:</label>
+          <div className="swap-git-header">http://www.github.com/mikefordweb</div>
+
+          <div className="swap-section">
+            <div className="swap-header">Select a Framework</div>
+              <div className="swap-items">
+                <div className="swap-item">
+                  <div className="swap-item-inner-header">React</div>
+                  <img className="swap-item-img" id="react-img" src="img/React.js_logo.svg.png"></img>
+                </div>
+                <div className="swap-item">
+                  <div className="swap-item-inner-header">Angular</div>
+                  <img className="swap-item-img" id="angular-img" src="img/angular.png"></img>
+                </div>
+              </div>
+          </div>
+          <div className="swap-section">
+            <div className="swap-header">Select a JS version</div>
+              <div className="swap-items">
+                <div className="swap-item">
+                  <div className="es-inner">ES5</div>
+                </div>
+                <div className="swap-item">
+                  <div className="es-inner">ES6</div>
+                </div>
+              </div>
+          </div>
+      );
+  }
 });
 
 ReactDOM.render(
