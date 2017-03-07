@@ -224,10 +224,10 @@ var App = React.createClass({
 
     return (
       <div>
-        <button className='stop-timers' onClick={this.stopGameTimers}>Stop</button>
-        <button className='start-timers' onClick={this.startGameTimers}>Start</button>
         <div className="inner-game-bkg main-container-bkg"></div>
-        
+        <div className="swap-content">
+          <SwapTools />
+        </div>
         <div className="game-wrapper">
         {this.state.stateGameArray.map(function(game_info, index) {
             return <div key={index} className="game-window">
@@ -246,9 +246,7 @@ var App = React.createClass({
               </div>
           })}
         </div>
-        <div className="swap-content">
-          <SwapTools />
-        </div>
+
       </div>
     );
   }
@@ -359,10 +357,11 @@ var CheersBoosTracker = React.createClass({
  }
 });
 
-var swapTools = React.createClass({
+var SwapTools = React.createClass({
   render: function() {
     return (
-          <label for="swap-git-header">Git Repo:</label>
+        <div>
+          <label htmlFor="swap-git-header">Git Repo:</label>
           <div className="swap-git-header">http://www.github.com/mikefordweb</div>
 
           <div className="swap-section">
@@ -381,19 +380,39 @@ var swapTools = React.createClass({
           <div className="swap-section">
             <div className="swap-header">Select a JS version</div>
               <div className="swap-items">
-                <div className="swap-item">
+                <div className="swap-item es-item">
                   <div className="es-inner">ES5</div>
                 </div>
-                <div className="swap-item">
+                <div className="swap-item es-item">
                   <div className="es-inner">ES6</div>
                 </div>
               </div>
           </div>
+          <div className="swap-section">
+            <div className="swap-header">Select a JS Design Pattern</div>
+              <div className="swap-items">
+                <div className="swap-item js-pattern">
+                  <div className="js-pattern-inner">Module</div>
+                </div>
+                <div className="swap-item js-pattern">
+                  <div className="js-pattern-inner">Revealing Module</div>
+                </div>
+              </div>
+              <div className="swap-items">
+                <div className="swap-item js-pattern">
+                  <div className="js-pattern-inner">Prototype</div>
+                </div>
+                <div className="swap-item js-pattern">
+                  <div className="js-pattern-inner">Observer</div>
+                </div>
+              </div>
+          </div>
+        </div>
       );
   }
 });
 
 ReactDOM.render(
   <App />,
-  document.getElementById('game-wrapper')
+  document.getElementById('game-select-wrapper')
 );

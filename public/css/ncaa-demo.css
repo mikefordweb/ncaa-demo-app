@@ -27,18 +27,19 @@ body {
 	margin: 40px 0 40px 0;
 }
 
-#game-wrapper {
+.game-wrapper {
 	display: inline-block;
 	position: relative;
 	overflow-y: scroll;
 	max-height: 570px;
-	width: 49%;
+	width: 50%;
 }
 
 .game-window {
 	width: 290px;
 	height: 200px;
 	margin-bottom: 18px;
+	margin-left: 18px;
 }
 
 .game-window:first-of-type {
@@ -232,7 +233,7 @@ body {
 .game-select-wrapper {
 	display: block;
 	position: relative;
-	width: 650px;
+	width: 700px;
 	height: 574px;
 	margin: 0 auto;
 }
@@ -467,6 +468,7 @@ body {
 
 .swap-content {
 	display: inline-block;
+	position: relative;
     width: 50%;
     vertical-align: top;
     opacity: .99;
@@ -474,13 +476,13 @@ body {
 
 .swap-content > div,
 .swap-content > label {
-    margin-left: 8px;
-    margin-top: 8px;
-    margin-right: 8px;
+	margin-left: 20px;
+    margin-top: 12px;
+    margin-right: 12px;
 }
 
-.swap-content > .swap-section {
-	margin-top: 14px;
+.swap-content .swap-section {
+	margin-top: 16px;
 }
 
 .swap-git-header {
@@ -519,7 +521,7 @@ label[for="swap-git-header"] {
 }
 
 .swap-item:first-of-type {
-	margin-right: 15px;
+	margin-right: 29px;
 }
 
 .swap-item-img {
@@ -544,16 +546,33 @@ label[for="swap-git-header"] {
 	cursor: pointer;
 }
 
+.es-item {
+	height: 71px;
+}
+
+.swap-item.es-item:hover {
+	background: #ffcc33;
+	color: #000;
+	cursor: pointer;
+}
+
 .swap-item:hover .swap-item-inner-header {
 	background: #27282a;
 }
 
 .es-inner {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	background-color: #ffcc33;
 	font-size: 46px;
+	line-height: 71px;
+	margin-left: 16px;
+}
+
+.swap-item.js-pattern {
+	height: 50px;
+	font-size: 14px;
+	vertical-align: top;
+	margin-bottom: 16px;
+	line-height: 48px;
+	text-align: center;
 }
 
 
